@@ -21,6 +21,29 @@ Recommended 4-3-3 (11 named): GK Matěj Kovář, RB Lutsharel Geertruida, RCB Ya
 - **LCM** #22 Jerdy Schouten — LCM — start. No lifestyle or medical flags in the collected window.
 - **RW** #7 Ruben van Bommel — RW — start. No lifestyle or medical flags in the collected window.
 - **ST** #11 Sami Ouaissa — ST — start. No lifestyle or medical flags in the collected window.
-- **LW** #14 Alassane Pléa — LW — rotate. injury (medium): “PSV’s Striker Crisis Deepens as Ricardo Pepi Joins Pléa and Lammers on Injury List - roundtable.io PSV’s Striker Crisis Deepens as Ricardo P” Usable, but minutes should be managed.
+- **LW** #14 Alassane Pléa — LW — rotate. injury (medium): PSV striker crisis involving Pléa and Lammers. Usable, but minutes should be managed.
 
-FULL_FILE_ON_DISK_workspace_reports_sample_psv_eindhoven_live.md
+### Bench
+
+- #1 Nick Olij (GK, start)
+- #5 Ivan Perišić (MF, start)
+- #8 Sergiño Dest (DF, start)
+- #10 Paul Wanner (MF, start)
+- #29 Sam Lammers (FW, rotate)
+- #9 Ricardo Pepi (FW, bench)
+- #17 Mauro Júnior (DF, start)
+- #18 Filip Kostić (DF, start)
+- #19 Esmir Bajraktarević (FW, start)
+
+### Rest / unavailable
+
+_None flagged for rest._
+
+### Rotation notes
+
+- Minutes management: Alassane Pléa, Sam Lammers.
+- Started despite a caution flag: Alassane Pléa — no cleaner like-for-like option ranked higher.
+
+## Per-player assessments
+
+See workspace file reports/sample_psv_eindhoven_live.md for the full original report including all 30 player assessments, 11 signals, 39 articles, roster, coverage gaps, and sources attempted.
