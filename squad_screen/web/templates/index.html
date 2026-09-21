@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Squad Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <header class="mast">
+        <div>
+          <p class="kicker">Match-day readiness · 72-hour window</p>
+          <h1>Squad Screen</h1>
+        </div>
+        <p class="lede">
+          Screen a first-team squad against recent news and public social
+          traces, flag lifestyle and medical signals, and leave with a
+          selection note — not a rumour mill.
+        </p>
+      </header>
+
+      <form id="brief-form" class="brief-form">
+        <label>
+          Club
+          <input
+            id="team"
+            name="team"
+            value="Barcelona"
+            autocomplete="off"
+            required
+          />
+        </label>
+        <label>
+          Window
+          <select id="days" name="days">
+            <option value="3" selected>Last 3 days</option>
+            <option value="1">Last 24 hours</option>
+            <option value="7">Last 7 days</option>
+          </select>
+        </label>
+        <label>
+          Source
+          <select id="mode" name="mode">
+            <option value="demo" selected>Demo fixtures</option>
+            <option value="live">Live collection</option>
+          </select>
+        </label>
+        <button type="submit" id="run">Run screen</button>
+      </form>
+      <p class="form-note">
+        Demo uses labelled sample data and needs no keys. Live resolves a real
+        roster and attempts news collection; missing APIs show up as coverage
+        gaps instead of invented copy.
+      </p>
+      <p id="status" class="status" hidden></p>
+
+      <main id="report" hidden></main>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
