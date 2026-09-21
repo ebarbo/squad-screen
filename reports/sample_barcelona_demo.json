@@ -1,1 +1,33 @@
-PLACEHOLDER_WILL_FAIL
+{
+  "team": {
+    "id": "demo-barca",
+    "name": "FC Barcelona",
+    "short_name": "Barça",
+    "competition": "La Liga",
+    "venue": "Spotify Camp Nou",
+    "source": "demo_fixture",
+    "crest_url": null
+  },
+  "generated_at": "2026-09-21T10:05:44.452739Z",
+  "window_start": "2026-09-18T10:05:44.452739Z",
+  "window_end": "2026-09-21T10:05:44.452739Z",
+  "mode": "demo",
+  "lookback_days": 3,
+  "roster": [
+    {
+      "id": "1",
+      "name": "Marc-André ter Stegen",
+      "position": "Goalkeeper",
+      "position_code": "GK",
+      "nationality": "Germany",
+      "date_of_birth": "1992-04-30",
+      "shirt_number": 1,
+      "source": "demo_fixture",
+      "aliases": [
+        "Marc-André ter Stegen",
+        "Stegen",
+        "ter Stegen"
+      ]
+    }
+  ]
+}
