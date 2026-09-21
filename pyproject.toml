@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "squad-screen"
+version = "0.1.0"
+description = "Match-day lifestyle and readiness screen for football squads."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Squad Screen" }]
+dependencies = [
+  "httpx>=0.27",
+  "feedparser>=6.0",
+  "trafilatura>=1.12",
+  "beautifulsoup4>=4.12",
+  "lxml>=5.3",
+  "pydantic>=2.8",
+  "pydantic-settings>=2.4",
+  "typer>=0.12",
+  "rich>=13.7",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "jinja2>=3.1",
+  "python-dateutil>=2.9",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3",
+  "pytest-asyncio>=0.24",
+]
+
+[project.scripts]
+squad-screen = "squad_screen.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["squad_screen"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
