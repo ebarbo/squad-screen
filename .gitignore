@@ -11,6 +11,7 @@ htmlcov/
 dist/
 build/
 .env
+config/instagram_handles.json
 .DS_Store
 reports/*
 !reports/sample_*

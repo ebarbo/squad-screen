@@ -109,14 +109,23 @@ def render_markdown(report: Report) -> str:
     if not report.social_items:
         lines.append("_No social items collected._")
     else:
+        grouped: dict[str, list] = {}
         for item in report.social_items:
-            when = _dt(item.timestamp)
-            demo = " · demo" if item.demo else ""
-            link = f" — {item.url}" if item.url else ""
-            lines += [
-                f"- **{item.player_name}** · {item.platform} {item.media_type} · {when} · {item.fetch_status}{demo}{link}",
-                f"  - {item.content[:400]}",
-            ]
+            grouped.setdefault(item.platform, []).append(item)
+        preferred = ("Instagram", "X")
+        platforms = [name for name in preferred if name in grouped]
+        platforms.extend(name for name in grouped if name not in preferred)
+        for platform in platforms:
+            lines += [f"### {platform}", ""]
+            for item in grouped[platform]:
+                when = _dt(item.timestamp)
+                demo = " · demo" if item.demo else ""
+                link = f" — {item.url}" if item.url else ""
+                lines += [
+                    f"- **{item.player_name}** · {item.platform} {item.media_type} · {when} · {item.fetch_status}{demo}{link}",
+                    f"  - {item.content[:400]}",
+                ]
+            lines.append("")
 
     lines += ["", "## Roster", ""]
     for player in report.roster:

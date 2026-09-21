@@ -1,0 +1,9 @@
+{
+  "_readme": "Fake Instagram usernames for the bundled Barcelona demo fixture. Live collection never loads this file unless INSTAGRAM_HANDLES_FILE points here.",
+  "players": [
+    {"id": "10", "name": "Lamine Yamal", "username": "demo_lamineyamal"},
+    {"id": "11", "name": "Raphinha", "username": "demo_raphinha"},
+    {"id": "3", "name": "Alejandro Balde", "username": "demo_alejandro.balde"},
+    {"id": "23", "name": "Jules Koundé", "username": "demo_juleskounde"}
+  ]
+}

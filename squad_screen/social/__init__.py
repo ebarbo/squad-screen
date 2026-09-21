@@ -8,6 +8,7 @@ from squad_screen.config import get_settings
 from squad_screen.http import HttpClient
 from squad_screen.models import Article, CoverageGap, Player, SocialItem
 from squad_screen.names import fold
+from squad_screen.social.instagram import collect_instagram
 
 log = logging.getLogger(__name__)
 
@@ -21,11 +22,6 @@ REPORTED_SOCIAL = re.compile(
 
 
 PLATFORM_GAPS = [
-    CoverageGap(
-        area="social:Instagram",
-        reason="Instagram Graph/Basic Display requires an approved Meta app and user tokens; no unauthenticated public feed is used.",
-        impact="First-party Instagram posts, stories, and check-ins are not collected.",
-    ),
     CoverageGap(
         area="social:TikTok",
         reason="TikTok Display/Research APIs require app review; unofficial scraping is not used.",
@@ -142,13 +138,19 @@ async def collect_social(
     articles: list[Article],
     start: datetime,
 ) -> tuple[list[SocialItem], list[CoverageGap], list[str]]:
-    attempted = ["x-twitter-recent-search", "reported-social-from-news"]
+    attempted = [
+        "x-twitter-recent-search",
+        "instagram-business-discovery",
+        "reported-social-from-news",
+    ]
     gaps = list(PLATFORM_GAPS)
     tweets, twitter_gap = await collect_twitter(client, players, start)
     if twitter_gap:
         gaps.append(twitter_gap)
+    ig_items, ig_gaps = await collect_instagram(client, players, start)
+    gaps.extend(ig_gaps)
     reported = extract_reported_social(articles, players)
-    items = tweets + reported
+    items = tweets + ig_items + reported
     if not items:
         gaps.append(
             CoverageGap(

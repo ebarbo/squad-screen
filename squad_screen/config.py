@@ -22,6 +22,15 @@ class Settings(BaseSettings):
 
     twitter_bearer_token: str = ""
 
+    # Instagram Graph API Business Discovery (v1.1). Auto-used when token + IG user id are set.
+    instagram_access_token: str = ""
+    instagram_business_account_id: str = ""
+    instagram_enabled: bool = True
+    instagram_graph_version: str = "v21.0"
+    instagram_max_players: int = 20
+    instagram_max_media: int = 10
+    instagram_handles_file: str = "config/instagram_handles.json"
+
     openai_api_key: str = ""
     openai_model: str = "gpt-4o-mini"
 
@@ -34,7 +43,20 @@ class Settings(BaseSettings):
     lookback_days: int = 3
     report_dir: str = "reports"
 
+    @property
+    def instagram_ready(self) -> bool:
+        """True when live Instagram Business Discovery should run."""
+        return bool(
+            self.instagram_enabled
+            and self.instagram_access_token.strip()
+            and self.instagram_business_account_id.strip()
+        )
+
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     return Settings()
+
+
+def reset_settings_cache() -> None:
+    get_settings.cache_clear()

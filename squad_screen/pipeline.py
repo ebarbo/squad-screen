@@ -81,8 +81,12 @@ async def _run_demo(team_query: str, now: datetime, start: datetime, days: int) 
         ),
         CoverageGap(
             area="social:Instagram",
-            reason="Demo includes labelled sample Instagram items; live mode cannot fetch Instagram without tokens.",
-            impact="Treat demo social items as illustrative only.",
+            reason=(
+                "Demo includes labelled sample Instagram items. Live Instagram uses Meta Graph API "
+                "Business Discovery when INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_BUSINESS_ACCOUNT_ID, and "
+                "an explicit handle map are set. Personal accounts cannot be read; scraping is out of scope."
+            ),
+            impact="Treat demo social items as illustrative only. Live mode never invents handles or captions.",
         ),
     ]
     return Report(

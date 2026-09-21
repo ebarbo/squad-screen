@@ -62,6 +62,24 @@ function esc(value) {
     .replaceAll(">", "&gt;");
 }
 
+function groupSocial(items) {
+  const grouped = new Map();
+  for (const item of items) {
+    const platform = item.platform || "other";
+    if (!grouped.has(platform)) grouped.set(platform, []);
+    grouped.get(platform).push(item);
+  }
+  const preferred = ["Instagram", "X"];
+  const ordered = [];
+  for (const name of preferred) {
+    if (grouped.has(name)) ordered.push([name, grouped.get(name)]);
+  }
+  for (const [name, rows] of grouped) {
+    if (!preferred.includes(name)) ordered.push([name, rows]);
+  }
+  return ordered;
+}
+
 function renderReport(report) {
   reportEl.hidden = false;
   const demoBanner =
@@ -117,15 +135,27 @@ function renderReport(report) {
     )
     .join("") || `<p class="form-note">No articles collected.</p>`;
 
-  const social = (report.social_items || [])
-    .map(
-      (s) => `
-      <div class="social">
+  const socialItems = report.social_items || [];
+  const social = socialItems.length
+    ? groupSocial(socialItems)
+        .map(([platform, rows]) => {
+          const cards = rows
+            .map((s) => {
+              const link = s.url
+                ? `<p><a href="${esc(s.url)}" target="_blank" rel="noopener">permalink</a></p>`
+                : "";
+              return `
+      <div class="social" data-platform="${esc(s.platform)}">
         <strong>${esc(s.player_name)}</strong> · ${esc(s.platform)} · ${esc(s.media_type)} · ${esc(s.fetch_status)}
         <p>${esc(s.content)}</p>
-      </div>`
-    )
-    .join("") || `<p class="form-note">No social items collected.</p>`;
+        ${link}
+      </div>`;
+            })
+            .join("");
+          return `<h3 class="social-platform">${esc(platform)}</h3>${cards}`;
+        })
+        .join("")
+    : `<p class="form-note">No social items collected.</p>`;
 
   const gaps = (report.coverage_gaps || [])
     .map(
