@@ -35,7 +35,7 @@ async def _social(*_args, **_kwargs):
     return (
         [],
         [CoverageGap(area="social", reason="No first-party or second-hand social items were collected in the window.", impact="empty")],
-        ["x-twitter-recent-search"],
+        ["x-twitter-recent-search", "instagram-business-discovery"],
     )
 
 

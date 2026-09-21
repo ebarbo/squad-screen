@@ -1,0 +1,11 @@
+{
+  "_readme": "Example Instagram username map for Squad Screen. Keys are player display names or roster ids; values are Instagram usernames without @. Business Discovery cannot search by player name. The handles below are fake and match the Barcelona demo fixture only — do not treat them as live accounts.",
+  "Lamine Yamal": "demo_lamineyamal",
+  "10": "demo_lamineyamal",
+  "Raphinha": "demo_raphinha",
+  "11": "demo_raphinha",
+  "Alejandro Balde": "demo_alejandro.balde",
+  "3": "demo_alejandro.balde",
+  "Jules Koundé": "demo_juleskounde",
+  "23": "demo_juleskounde"
+}

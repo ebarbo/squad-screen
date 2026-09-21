@@ -38,3 +38,5 @@ def test_demo_markdown_shape(tmp_path: Path):
     assert "Starting XI" in md
     assert "Araújo" in md or "Araujo" in md
     assert any("paywalled" in a.fetch_status or a.paywalled for a in report.articles)
+    assert any(s.platform == "Instagram" for s in report.social_items)
+    assert "### Instagram" in md

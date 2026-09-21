@@ -8,6 +8,7 @@
   --amber: #e8b15a;
   --red: #e26d5a;
   --teal: #7ec8b3;
+  --ig: #d989b0;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
@@ -279,6 +280,19 @@ h2 {
 .article a,
 .social a {
   color: var(--lime);
+}
+
+.social[data-platform="Instagram"] {
+  border-left: 3px solid var(--ig);
+}
+
+h3.social-platform {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 22px 0 10px;
 }
 
 .gaps .gap {

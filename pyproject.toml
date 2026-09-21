@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "squad-screen"
-version = "0.1.0"
+version = "0.2.0"
 description = "Match-day lifestyle and readiness screen for football squads."
 readme = "README.md"
 requires-python = ">=3.11"
