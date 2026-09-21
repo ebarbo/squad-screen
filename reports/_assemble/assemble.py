@@ -52,6 +52,14 @@ def main():
         "reports/_assemble/barca_compact.json.gz.b64",
         "reports/sample_barcelona_demo.json",
     )
+    if pathlib.Path("reports/_assemble/psv6_0.txt").exists():
+        restore_u0022(
+            "psv6_", 6, "reports/sample_psv_eindhoven_live.json"
+        )
+    if pathlib.Path("reports/_assemble/barca6_5.txt").exists():
+        restore_u0022(
+            "barca6_", 6, "reports/sample_barcelona_demo.json"
+        )
 
 
 if __name__ == "__main__":
